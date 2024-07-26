@@ -1,18 +1,20 @@
-<input type="text" (input)="filter($event)" placeholder="Search movies...">
-<button> Search </button>
+<form class=" flex justify-center   mt-6" [formGroup]="searchForm">
+  <input class="border-2 shadow-md ps-2 py-1 border-black bg-yellow-300 rounded-sm" type="text" formControlName="searchValue" placeholder="Search movies...">
+</form>
+
 <div
-  class="grid lg:grid-cols-4 lg:gap-14 lg:px-60 pt-10 pb-40"
+  class="grid lg:grid-cols-5 md:grid-cols-3 gap-10 lg:px-60 md:px-8 px-10 pt-10 pb-40"
   *ngIf="data.length > 0; else loading"
 >
-  <div *ngFor="let item of data">
+  <div *ngFor="let item of filteredData">
     <img
-      class="border-2 shadow-md hover:cursor-pointer border-black rounded-xl"
+      class="border-2 shadow-md  hover:cursor-pointer border-black rounded-xl"
       [src]="item.Poster"
       alt="{{ item.Title }} Poster"
     />
-    <div class="border-2 shadow-md py-2 px-2 border-black mt-4 bg-yellow-300 rounded-xl">
-      <h2 class="font-semibold">{{ item.Title }}</h2>
-      <p class="font-semibol">{{ item.Year }}</p>
+    <div class="border-2 lg:w-60 lg:mx-2 m  shadow-md py-2 px-4 border-black mt-4 bg-yellow-300 rounded-xl">
+      <h2 class="text-center lg:text-base text-sm font-semibold">{{ item.Title }}</h2>
+      <p class="text-center lg:text-base pt-2 font-semibold">Released: {{ item.Year }}</p>
     </div>
   </div>
 </div>
