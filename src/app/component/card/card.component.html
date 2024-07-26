@@ -6,9 +6,9 @@
   class="grid lg:grid-cols-5 md:grid-cols-3 gap-10 lg:px-60 md:px-8 px-10 pt-10 pb-40"
   *ngIf="data.length > 0; else loading"
 >
-  <div *ngFor="let item of filteredData">
+  <div  *ngFor="let item of filteredData">
     <img
-      class="border-2 shadow-md  hover:cursor-pointer border-black rounded-xl"
+      class="border-2 shadow-md mx-3 lg:mx-0 md:mx-0 hover:cursor-pointer border-black rounded-xl"
       [src]="item.Poster"
       alt="{{ item.Title }} Poster"
     />
