@@ -1,0 +1,23 @@
+<input type="text" (input)="filter($event)" placeholder="Search movies...">
+<button> Search </button>
+<div
+  class="grid lg:grid-cols-4 lg:gap-14 lg:px-60 pt-10 pb-40"
+  *ngIf="data.length > 0; else loading"
+>
+  <div *ngFor="let item of data">
+    <img
+      class="border-2 shadow-md hover:cursor-pointer border-black rounded-xl"
+      [src]="item.Poster"
+      alt="{{ item.Title }} Poster"
+    />
+    <div class="border-2 shadow-md py-2 px-2 border-black mt-4 bg-yellow-300 rounded-xl">
+      <h2 class="font-semibold">{{ item.Title }}</h2>
+      <p class="font-semibol">{{ item.Year }}</p>
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  <p>Loading...</p>
+</ng-template>
+
+
